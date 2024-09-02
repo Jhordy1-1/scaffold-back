@@ -34,8 +34,6 @@ const editarEstudiante= async (req, res) => {
     const { _id, ...data } = req.body;
     const { email } = req.body;
     if (Object.values(req.body).includes("")) return res.status(400).json({msg:"Lo sentimos, debes llenar todos los campos"})
-    const verificarEmailBDD = await Estudiante.findOne({email})
-    if(verificarEmailBDD && verificarEmailBDD._id!=_id) return res.status(400).json({msg:"Lo sentimos, el email no puedes ser de otro usuario registrado"})
     const estudianteActualizado = await Estudiante.findByIdAndUpdate(_id, data , { new: true });
     res.status(200).json({msg:"Estudiante actualizado con id: "+_id});
 }
