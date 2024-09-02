@@ -1,5 +1,5 @@
 import Estudiante from "../T_models/Estudiante.js";
-
+import mongoose from "mongoose";
 
 
 const crearEstudiante = async (req, res) => {
