@@ -17,9 +17,9 @@ import { validarEstudiante,manejarErrores } from '../T_middlewares/validacionFor
 
 router.get("/estudiantes",verificarAutenticacion, verEstudiantes);
 router.get("/estudiante/:id",verificarAutenticacion, verEstudiante);
-router.post("/estudainte", verificarAutenticacion, validarEstudiante,manejarErrores , crearEstudiante);
-router.delete("/estudainte/:id", verificarAutenticacion, eliminarEstudiante);
-router.put("/estudainte", verificarAutenticacion, editarEstudiante);
+router.post("/estudiante", verificarAutenticacion, validarEstudiante,manejarErrores , crearEstudiante);
+router.delete("/estudiante/:id", verificarAutenticacion, eliminarEstudiante);
+router.put("/estudiante", verificarAutenticacion, editarEstudiante);
 
 
 // Exportar la variable router
