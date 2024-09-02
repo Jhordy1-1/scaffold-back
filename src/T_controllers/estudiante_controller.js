@@ -25,6 +25,7 @@ const verEstudiante = async (req, res) => {
 
 const eliminarEstudiante = async (req, res) => {
     const{id} = req.params;
+    if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg:`Lo sentimos, no existe ese estudiante`});
     await Estudiante.findByIdAndDelete(id);
     res.status(200).json({msg:"Estudiante eliminado con id: " + id});
 }

@@ -35,10 +35,10 @@ const editarMatricula = async (req, res) => {
     const {codigo,id_estudiante,id_materia}= req.body
 
     if (Object.values(req.body).includes("")) return res.status(400).json({msg:"Lo sentimos, debes llenar todos los campos"})
-    if( !mongoose.Types.ObjectId.isValid(id_estudiante) ) return res.status(404).json({msg:`Lo sentimos, no existe ese cliente`});
-    if( !mongoose.Types.ObjectId.isValid(id_materia) ) return res.status(404).json({msg:`Lo sentimos, no existe ese producto`});
+    if( !mongoose.Types.ObjectId.isValid(id_estudiante) ) return res.status(404).json({msg:`Lo sentimos, no existe ese estudiante`});
+    if( !mongoose.Types.ObjectId.isValid(id_materia) ) return res.status(404).json({msg:`Lo sentimos, no existe esta matricula`});
     const verificarCodigoBDD = await Matricula.findOne({codigo})
-    if(verificarCodigoBDD && verificarCodigoBDD._id!=_id) return res.status(400).json({msg:"Lo sentimos, el codigo del producto ya se encuentra registrado"})
+    if(verificarCodigoBDD && verificarCodigoBDD._id!=_id) return res.status(400).json({msg:"Lo sentimos, el codigo de la matricula ya se encuentra registrado"})
     const matriculaActualizada = await Matricula.findByIdAndUpdate(_id, data , { new: true });
     res.status(200).json({msg:"Matricula actualizada con id: "+_id},matriculaActualizada);
 }
