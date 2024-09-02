@@ -9,9 +9,9 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 import routerUsuario from './T_routes/usuario_routes.js'
-import routerCliente from './T_routes/cliente_routes.js'
-import routerProducto from './T_routes/producto_routes.js'
-import routerPedido from './T_routes/pedido_routes.js'
+import routerEstudiante from './T_routes/estudiante_routes.js'
+import routerMateria from './T_routes/materia_routes.js'
+import routerMatricula from './T_routes/matricula_routes.js'
 
 
 // Inicializaciones
@@ -26,9 +26,9 @@ app.use(express.json())
 
 // Rutas 
 app.use('/api', routerUsuario)
-app.use('/api', routerCliente)
-app.use('/api', routerProducto)
-app.use('/api', routerPedido)
+app.use('/api', routerEstudiante)
+app.use('/api', routerMateria)
+app.use('/api', routerMatricula)
 
 // Manejo de una ruta que no sea encontrada
 app.use((req, res) => res.status(404).send("Endpoint no encontrado - 404"))
